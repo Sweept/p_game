@@ -13,7 +13,7 @@ print("Welcome " + myName +
 print("Take a guess. You have a total of 5 guesses to find the correct number.")
 
 for eachGuess in range(guessTries):
-    print("You have {} remaining".format(guessTries))
+    print("You have {} remaining".format(guessTries - eachGuess))
     guess = input()
     guess = int(guess)
     if guess < number:
