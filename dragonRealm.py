@@ -19,10 +19,22 @@ def checkCave(chosenCave):
     print('You approach the cave...')
     time.sleep(2)
     print("Its dark and spooky...")
-    time.sleep(2.3)
+    time.sleep(2)
     print("A gaint dragon jumps out in front of you! He opens his jaws and... \n")
-    time.sleep(1)
+    time.sleep(2)
 
     friendlyCave = random.randint(1, 2)
 
-    if chosenCave == str()
+    if chosenCave == str(friendlyCave):
+        print("Gives you great wisdom and opportunity for the future, you leave the cave feeling strong!")
+    else:
+        print("The dragon attacks you! You fight back but you knew you can't beat him today, so you fled knowing you will return to this cave later...")
+
+
+playAgain = 'yes'
+while playAgain == "yes" or playAgain == "y":
+    displayIntro()
+    caveNumber = chooseCave()
+    checkCave(caveNumber)
+    print("Do you want to play again? (yes or no)")
+    playAgain = input()
