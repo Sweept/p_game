@@ -60,3 +60,23 @@ def displayHangman(missedLetters, correctLetters, secretWord):
     for letter in blanks:
         print(letter, end=' ')
     print()
+
+
+def getGuess(alreadyGuessed):
+    while True:
+        print("Guess a letter")
+        guess = input()
+        guess = guess.lower()
+        if len(guess) != 1:
+            print("Please enter a single letter.")
+        elif guess in alreadyGuessed:
+            print("You have already guessed that letter")
+        elif:
+            print("Please enter a letter")
+        else:
+            return guess
+
+
+def playAgain():
+    print("Do you want to play again? Y or N")
+    return input.lower().startswith("y")
