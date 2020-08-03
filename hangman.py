@@ -71,7 +71,7 @@ def getGuess(alreadyGuessed):
             print("Please enter a single letter.")
         elif guess in alreadyGuessed:
             print("You have already guessed that letter")
-        elif:
+        elif guess not in 'abcdefghijklmnopqrstuvwxyz':
             print("Please enter a letter")
         else:
             return guess
@@ -79,4 +79,20 @@ def getGuess(alreadyGuessed):
 
 def playAgain():
     print("Do you want to play again? Y or N")
-    return input.lower().startswith("y")
+    return input().lower().startswith("y")
+
+
+print("H A N G M A N")
+missedLetters = ''
+correctLetters = ''
+secretWord = getRandomWord(words)
+gameIsDone = False
+
+while True:
+    displayBoard(missedLetters, correctLetters, secretWord)
+    # Let the player enter a letter
+    guess = getGuess(missedLetters + correctLetters)
+
+    if guess in secretWord:
+        correctLetters = correctLetters + guess
+        # Check if the player has won
