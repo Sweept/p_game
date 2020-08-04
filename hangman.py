@@ -1,5 +1,5 @@
 import random
-hangman_state = ['''
+HANGMAN_PICS = ['''
     +---+
         |
         |
@@ -44,8 +44,9 @@ def getRandomWord(wordList):
     return wordList_Split(word_index)
 
 
-def displayHangman(missedLetters, correctLetters, secretWord):
-    print(hangman_state[len(missedLetters)], "\n")
+def displayBoard(missedLetters, correctLetters, secretWord):
+    # based on the number of missed letters, display approriate hangman pic
+    print(HANGMAN_PICS[len(missedLetters)], "\n")
     print('Missed letters:', end=' ')
     for letter in missedLetters:
         print(letter, end=' ')
@@ -55,6 +56,7 @@ def displayHangman(missedLetters, correctLetters, secretWord):
 
     for i in range(len(secretWord)):
         if secretWord(i) in correctLetters:
+            # Trick is here
             blanks = blanks[:i] + secretWord[i] + blanks[i+1:]
 
     for letter in blanks:
@@ -96,3 +98,5 @@ while True:
     if guess in secretWord:
         correctLetters = correctLetters + guess
         # Check if the player has won
+        foundAllLetters = True
+        for i in range()
