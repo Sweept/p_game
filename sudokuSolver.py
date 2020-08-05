@@ -10,8 +10,27 @@ grid = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
         [0, 0, 0, 4, 1, 9, 0, 0, 5],
         [0, 0, 0, 0, 8, 0, 0, 0, 0]]
 
-print(numpy.matrix(grid))
-print()
+# print(numpy.matrix(grid))
+# print()
+
+# Print the grid into a readible sudoku board
+
+
+def printBoard(grid):
+    for x in range(len(grid)):
+        if x % 3 == 0:
+            print(" _ _ _ _ _ _ _ _ _ _ _ _ _ _")
+
+        for y in range(len(grid[0])):
+            if y % 3 == 0:
+                print(' | ', end="")
+            if y == 8:
+                print(str(grid[x][y]) + " | ")
+            else:
+                print(str(grid[x][y]) + " ", end="")
+
+    if x == 8:
+        print(" _ _ _ _ _ _ _ _ _ _ _ _ _ _")
 
 # y & x are the positions, n is the number at that position
 # First checks the row
@@ -41,6 +60,7 @@ def possible(y, x, n):
     return True
 
 
+print(printBoard(grid))
 print(possible(4, 4, 3))
 print(possible(4, 4, 5))
 
@@ -56,7 +76,8 @@ def solver():
                         solver()
                         grid[y][x] = 0
                 return
-    print(numpy.matrix(grid))
+    # print(numpy.matrix(grid))
+    print(printBoard(grid))
     input("More Solutions?")
 
 
