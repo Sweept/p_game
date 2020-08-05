@@ -8,10 +8,10 @@ grid = [[5, 3, 0, 0, 7, 0, 0, 0, 0],
         [7, 0, 0, 0, 2, 0, 0, 0, 6],
         [0, 6, 0, 0, 0, 0, 2, 8, 0],
         [0, 0, 0, 4, 1, 9, 0, 0, 5],
-        [0, 0, 0, 0, 8, 0, 0, 7, 9]]
+        [0, 0, 0, 0, 8, 0, 0, 0, 0]]
 
-numpy_grid = numpy.matrix(grid)
-print(numpy_grid)
+print(numpy.matrix(grid))
+print()
 
 # y & x are the positions, n is the number at that position
 # First checks the row
@@ -43,3 +43,21 @@ def possible(y, x, n):
 
 print(possible(4, 4, 3))
 print(possible(4, 4, 5))
+
+
+def solver():
+    global grid
+    for y in range(9):
+        for x in range(9):
+            if grid[y][x] == 0:
+                for n in range(1, 10):
+                    if possible(y, x, n):
+                        grid[y][x] = n
+                        solver()
+                        grid[y][x] = 0
+                return
+    print(numpy.matrix(grid))
+    input("More Solutions?")
+
+
+solver()
