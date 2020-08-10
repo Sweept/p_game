@@ -1,1 +1,1 @@
-C:/Program Files/Notepad++/notepad++.exe,C:/Program Files/Mozilla Firefox/firefox.exe,
+C:/Program Files/Notepad++/notepad++.exe,C:/Program Files (x86)/Steam/steam.exe,
