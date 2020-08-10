@@ -12,6 +12,16 @@ if os.path.isfile('saveAppFile.txt'):
         apps = [x for x in tempApps if x.strip()]
 
 
+def removeApps():
+    if os.path.isfile('saveAppFile.txt'):
+        with open('saveAppFile.txt', 'w') as f:
+            for eachApp in apps:
+                print(eachApp)
+                apps.remove(eachApp)
+                eachApp = ""
+                f.write(eachApp)
+
+
 def addApp():
 
     for widget in frame.winfo_children():
@@ -45,6 +55,9 @@ runApps = tk.Button(root, text="Run Apps", padx=10,
                     pady=5, fg="white", bg="#263D42", command=runApps)
 runApps.pack()
 
+removeApp = tk.Button(root, text="Delete App", padx=10,
+                      pady=5, fg="white", bg="#263D42", command=removeApps)
+removeApp.pack()
 
 for app in apps:
     label = tk.Label(frame, text=app)
